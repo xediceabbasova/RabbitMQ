@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  rabbit_mq:
+    image: rabbitmq:3.12.9-management
+    ports:
+      - 5673:5672
+      - 15673:15672
+  core:
+    image: rabbitmq:1.0
+    ports:
+      - 9090:8080
+    depends_on:
+      - rabbit_mq
+
